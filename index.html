@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- slick js -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+    <script>
+        tailwind.config = {
+            theme:{
+                extend:{
+                    colors:{
+                       primary:"#94CA21"
+                    },
+                    fontFamily:{
+                       kalam:"'Kalam', cursive;"
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer components{
+            .container{
+                margin: 0 auto;
+                padding: 0 10px;
+                border: 1px solid red;
+            }
+            .common-heading{
+                @apply text-3xl font-kalam font-semibold text-black uppercase leading-tight ;
+            }
+            .common-span{
+                @apply inline-block text-[#94CA21] ;
+            }
+             .rental-slide .slick-dots{
+                display: flex !important;
+                gap: 20px !important;
+                position: absolute;
+                right: 20px;
+                top: -20px;
+            }
+             .rental-slide .slick-dots li button{
+                display: none;
+            }
+             .rental-slide .slick-dots li {
+                display: inline-block;
+                width: 7px;
+                height: 7px;
+                background: gray;
+                border-radius: 50%;
+            }
+             .rental-slide .slick-dots .slick-active{
+                background:#94CA21;
+            }
+            .testimonial-slider .slick-dots{
+                display: flex !important;
+                gap: 20px !important;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: -20px;
+            }
+             .testimonial-slider .slick-dots li button{
+                display: none;
+            }
+             .testimonial-slider .slick-dots li {
+                display: inline-block;
+                width: 7px;
+                height: 7px;
+                background: gray;
+                border-radius: 50%;
+            }
+             .testimonial-slider .slick-dots .slick-active{
+                background:#94CA21;
+            }
+            .label-btn::after{
+                content: "";
+                width: 40%;
+                height: 100%;
+                background: rgb(93, 252, 1);
+                position: absolute;
+                border-radius: 50%;
+                right: 0;
+                top: 0;
+            }
+            .label-btn::before{
+                content: "";
+                width: 40%;
+                height: 100%;
+                background: rgb(93, 252, 1);
+                position: absolute;
+                border-radius: 50%;
+                left: 0;
+                top: 0;
+                display: none;
+            }
+            #check:checked ~ .label-btn::after{
+                 display: none;
+            }
+            #check:checked ~ .label-btn::before{
+                 display: block;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white space-y-16">
+    <!-- hero part start -->
+  <div id="hero-part bg-white border relative ">
+    <div class="overly-1 absolute max-w-64 h-64 right-0 top-28 hidden xl:block">
+        <img src="image/Pattern_right.png" class="w-full h-full object-contain" alt="">
+    </div>
+    <div class="overly-2 absolute max-w-40 h-64 left-0 top-32 hidden xl:block">
+        <img src="image/Pattern_left.png" class="w-full h-full object-contain" alt="">
+    </div>
+    <div class="container">
+       <header>
+        <div class="navbar bg-white flex flex-col gap-y-8 justify-between items-center lg:flex-row lg:gap-y-0">
+            <div class="nav-start">
+              <a href="#">
+                <img src="image/logo.png" alt="">
+              </a>
+            </div>
+            <div class="nav-center">
+                <ul class="main-nav flex flex-col gap-y-6 lg:flex-row lg:gap-x-8 lg:gap-y-0">
+                    <li><a href="#" class="text-slate-500 font-mono font-medium text-base hover:underline underline-offset-4 transform duration-200 decoration-[#94CA21] hover:text-[#94CA21] capitalize">Home</a></li>
+                    <li><a href="#" class="text-slate-500 font-mono font-medium text-base hover:underline underline-offset-4 transform duration-200 decoration-[#94CA21] hover:text-[#94CA21] capitalize">Booking</a></li>
+                    <li><a href="#" class="text-slate-500 font-mono font-medium text-base hover:underline underline-offset-4 transform duration-200 decoration-[#94CA21] hover:text-[#94CA21] capitalize">About</a></li>
+                    <li><a href="#" class="text-slate-500 font-mono font-medium text-base hover:underline underline-offset-4 transform duration-200 decoration-[#94CA21] hover:text-[#94CA21] capitalize">Cars</a></li>
+                    <li><a href="#" class="text-slate-500 font-mono font-medium text-base hover:underline underline-offset-4 transform duration-200 decoration-[#94CA21] hover:text-[#94CA21] capitalize">services</a></li>
+                    <li><a href="#" class="text-slate-500 font-mono font-medium text-base hover:underline underline-offset-4 transform duration-200 decoration-[#94CA21] hover:text-[#94CA21] capitalize">Contact</a></li>
+                  </ul>
+            </div>
+            <div class="nav-end">
+                <div class="button-grp flex gap-x-7">
+                    <button  class="hover:ring-1 hover:ring-[#94CA21] py-1 px-5 rounded-full capitalize font-mono font-medium text-base transform duration-300 transition-all shadow-lg hover:shadow-[#94CA21]">Login</button>
+                    <button class="ring-1 ring-[#94CA21] py-1 px-5 rounded-full capitalize font-mono text-black text-base font-medium shadow-lg hover:shadow-[#94CA21] fransform duration-300 transition-all">sign up</button>
+                </div>
+            </div>
+          </div>
+       </header>
+       <!-- banner part start -->
+       <div class="banner-part max-w-4xl mx-auto mt-16 bg-white space-y-16">
+            <div class="banner-start">
+                <div class="banner-text text-center">
+                    <h1 class="text-5xl font-kalam font-semibold text-black uppercase leading-tight">Find your <span class="inline-block text-[#94CA21]">rental car</span></h1>
+                    <p class="text-base font-mono text-slate-500 font-medium mt-3">We have many best rental car collections.</p>
+                </div>
+            </div>
+            <div class="banner-end w-full grid grid-cols-12 space-y-8 bg-white">
+                <div class="inner-item col-span-12 w-ful grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-4 lg:grid-cols-4 lg:gap-x-3 lg:gap-y-0 ">
+                   <div class="item-1 space-y-3 lg:space-y-5">
+                    <p class="text-base text-slate-500 font-mono font-medium w-full">Vehicle type</p>
+                    <div class="select-car border border-gray-300 p-2 flex justify-between gap-x-2 items-center pl-3 bg-white">
+                        <select class="bg-transparent appearance-none border-0 text-base font-mono font-medium text-slate-400">
+                            <option value="select car group">select car group</option>
+                            <option value="BMW">BMW X5</option>
+                            <option value="Lamborghini">Lamborghini</option>
+                            <option value="SSC Tuatara">SSC Tuatara</option>
+                            <option value="Bugatti Bolide">Bugatti Bolide</option>
+                        </select>
+                        <i class="ri-car-line"></i>
+                    </div>
+                   </div>
+                   <div class="item-1 space-y-3 lg:space-y-5">
+                    <p class="text-base text-slate-500 font-mono font-medium">Picking up location</p>
+                    <div class="select-car border border-gray-300 p-2 flex justify-between gap-x-2 items-center pl-3 bg-white">
+                        <select class="bg-transparent appearance-none border-0 text-base font-mono font-medium text-slate-400">
+                            <option value="select car group">Airport</option>
+                            <option value="BMW">USA</option>
+                            <option value="Lamborghini">Japan</option>
+                            <option value="SSC Tuatara">Dubai</option>
+                            <option value="Bugatti Bolide">china</option>
+                        </select>
+                        <i class="ri-map-pin-line"></i>
+                    </div>
+                   </div>
+                   <div class="item-1 space-y-3 lg:space-y-5">
+                    <p class="text-base text-slate-500 font-mono font-medium">Picking up date</p>
+                    <div class="select-car border border-gray-300 p-2 flex justify-between gap-x-2 items-center pl-3 bg-white">
+                        <input type="text" class="appearance-none bg-transparent w-10/12 text-base placeholder:text-base font-mono text-slate-400 font-medium" placeholder="20/03/2023" name="" id="">
+                        <i class="ri-calendar-2-line"></i>
+                    </div>
+                   </div>
+                   <div class="item-1 space-y-3 lg:space-y-5">
+                    <p class="text-base text-slate-500 font-mono font-medium">Returning date</p>
+                    <div class="select-car border border-gray-300 p-2 flex justify-between gap-x-2 items-center pl-3 bg-white">
+                        <input type="text" class="appearance-none bg-transparent w-10/12 text-base placeholder:text-base font-mono text-slate-400 font-medium focus-visible:outline-0 focus-visible:outline-white" placeholder="20/03/2023" name="" id="">
+                        <i class="ri-calendar-2-line"></i>
+                    </div>
+                   </div>
+                </div>
+                <div class="inner-item col-span-12 w-full">
+                    <button class="w-full bg-black py-2 text-white font-mono text-base font-medium uppercase rounded-md hover:bg-[#94CA21] hover:text-black">Find YOUr CAR</button>
+                </div>
+            </div>
+       </div>
+    </div>
+  </div>
+  <!-- process part start -->
+  <div id="section-process" class="bg-white">
+    <div class="container">
+        <div class="process-container bg-white space-y-10">
+            <div class="process-heading bg-white w-full text-center">
+                <h2 class="common-heading w-full">Our renting <span class="common-span">process</span></h2>
+            </div>
+            <div class="process-heroPart grid grid-cols-1 gap-y-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-y-0 lg:gap-x-4 ">
+                <div class="item group space-y-4 bg-white">
+                    <div class="dots w-4 h-4 bg-primary/50 rounded-full group-hover:bg-primary ">
+                    </div>
+                     <div class="text">
+                        <h4 class="text-base text-slate-700 font-mono font-semibold uppercase">Choose a vehicle</h4>
+                        <p class="text-base text-slate-500 font-mono font-medium">Sed euismod mauris corper libero.</p>
+                     </div>
+                </div>
+                <div class="item group space-y-4 bg-white">
+                    <div class="dots w-4 h-4 bg-primary/50 rounded-full group-hover:bg-primary ">
+                    </div>
+                     <div class="text">
+                        <h4 class="text-base text-slate-700 font-mono font-semibold uppercase">Pick location & date</h4>
+                        <p class="text-base text-slate-500 font-mono font-medium">Nisi maecenas fermentum neque.</p>
+                     </div>
+                </div>
+                <div class="item group space-y-4 bg-white">
+                    <div class="dots w-4 h-4 bg-primary/50 rounded-full group-hover:bg-primary ">
+                    </div>
+                     <div class="text">
+                        <h4 class="text-base text-slate-700 font-mono font-semibold uppercase">Book your car</h4>
+                        <p class="text-base text-slate-500 font-mono font-medium">Mauris corper accumsan urna sed.</p>
+                     </div>
+                </div>
+                <div class="item group space-y-4 bg-white">
+                    <div class="dots w-4 h-4 bg-primary/50 rounded-full group-hover:bg-primary ">
+                    </div>
+                     <div class="text">
+                        <h4 class="text-base text-slate-700 font-mono font-semibold uppercase">Finish process</h4>
+                        <p class="text-base text-slate-500 font-mono font-medium">Orci duis ut lectus metus nam sette.</p>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- rental part start -->
+  <div id="section-rental" class="bg-white">
+    <div class="container">
+        <div class="rental-container bg-white space-y-10 relative">
+            <div class="rental-heading w-full text-center">
+                <h2 class="common-heading w-full">cars for <span class="common-span">rental</span></h2>
+            </div>
+            <div class="rental-slide bg-white rounded-box flex justify-between pb-6">
+                <div class="inner-item bg-white space-y-3 mx-3">
+                  <div class="img">
+                    <img src="image/image-1.png" class="rounded-md w-full" alt="car">
+                  </div>
+                  <div class="text space-y-3 p-2">
+                      <div class="one-section space-y-2">
+                        <h3 class="text-xl font-medium text-gray-700 font-mono">BMW x3</h3>
+                        <div class="details flex gap-x-4 sm:gap-x-3">
+                            <span class="text-sm md:text-base  text-slate-400 font-mono font-medium capitalize">Sports</span><span class="text-sm md:text-base text-slate-400 font-mono font-medium capitalize">Auto</span><span class="text-sm md:text-base text-slate-400 font-mono font-medium capitalize">4 passengers</span><span class="text-sm md:text-base text-slate-400 font-mono font-medium capitalize">diesel</span>
+                         </div>
+                      </div>
+                      <div class="two-section flex justify-between">
+                         <div class="price">
+                            <span class="text-2xl text-black font-mono font-semibold">$369</span><span class="text-sm text-slate-700 font-mono text-medium">/day</span>
+                         </div>
+                         <button class="px-3 py-1 bg-black text-base text-white uppercase font-mono rounded-sm hover:bg-[#94CA21] hover:text-black transform transition-all duration-200">Rent now</button>
+                      </div>
+                  </div>
+                </div> 
+                <div class="inner-item bg-white space-y-3 mx-3">
+                  <div class="img">
+                    <img src="image/image-2.png" class="rounded-md w-full" alt="car">
+                  </div>
+                  <div class="text space-y-3 p-2">
+                      <div class="one-section space-y-2">
+                        <h3 class="text-xl font-medium text-gray-700 font-mono">BMW M2</h3>
+                        <div class="details flex gap-x-4 sm:gap-x-3">
+                            <span class="text-sm md:text-base  text-slate-400 font-mono font-medium capitalize">Sports</span><span class="text-sm md:text-base text-slate-400 font-mono font-medium capitalize">Auto</span><span class="text-sm md:text-base text-slate-400 font-mono font-medium capitalize">4 passengers</span><span class="text-sm md:text-base text-slate-400 font-mono font-medium capitalize">diesel</span>
+                         </div>
+                      </div>
+                      <div class="two-section flex justify-between">
+                         <div class="price">
+                            <span class="text-2xl text-black font-mono font-semibold">$369</span><span class="text-sm text-slate-700 font-mono text-medium">/day</span>
+                         </div>
+                         <button class="px-3 py-1 bg-black text-base text-white uppercase font-mono rounded-sm hover:bg-[#94CA21] hover:text-black transform transition-all duration-200">Rent now</button>
+                      </div>
+                  </div>
+                </div> 
+                <div class="inner-item bg-white space-y-3 mx-3">
+                  <div class="img">
+                    <img src="image/image-3.png" class="rounded-md w-full" alt="car">
+                  </div>
+                  <div class="text space-y-3 p-2">
+                      <div class="one-section space-y-2">
+                        <h3 class="text-xl font-medium text-gray-700 font-mono">Ford explorer</h3>
+                        <div class="details flex gap-x-4 sm:gap-x-3">
+                            <span class="text-sm md:text-base  text-slate-400 font-mono font-medium capitalize">Sports</span><span class="text-sm md:text-base text-slate-400 font-mono font-medium capitalize">Auto</span><span class="text-sm md:text-base text-slate-400 font-mono font-medium capitalize">4 passengers</span><span class="text-sm md:text-base text-slate-400 font-mono font-medium capitalize">diesel</span>
+                         </div>
+                      </div>
+                      <div class="two-section flex justify-between">
+                         <div class="price">
+                            <span class="text-2xl text-black font-mono font-semibold">$369</span><span class="text-sm text-slate-700 font-mono text-medium">/day</span>
+                         </div>
+                         <button class="px-3 py-1 bg-black text-base text-white uppercase font-mono rounded-sm hover:bg-[#94CA21] hover:text-black transform transition-all duration-200">Rent now</button>
+                      </div>
+                  </div>
+                </div> 
+                <div class="inner-item bg-white space-y-3 mx-3">
+                  <div class="img">
+                    <img src="image/image-2.png" class="rounded-md w-full" alt="car">
+                  </div>
+                  <div class="text space-y-3 p-2">
+                      <div class="one-section space-y-2">
+                        <h3 class="text-xl font-medium text-gray-700 font-mono">BMW M2</h3>
+                     <div class="details flex gap-x-4 sm:gap-x-3">
+                        <span class="text-sm md:text-base  text-slate-400 font-mono font-medium capitalize">Sports</span><span class="text-sm md:text-base text-slate-400 font-mono font-medium capitalize">Auto</span><span class="text-sm md:text-base text-slate-400 font-mono font-medium capitalize">4 passengers</span><span class="text-sm md:text-base text-slate-400 font-mono font-medium capitalize">diesel</span>
+                     </div>
+                      </div>
+                      <div class="two-section flex justify-between">
+                         <div class="price">
+                            <span class="text-2xl text-black font-mono font-semibold">$369</span><span class="text-sm text-slate-700 font-mono text-medium">/day</span>
+                         </div>
+                         <button class="px-3 py-1 bg-black text-base text-white uppercase font-mono rounded-sm hover:bg-[#94CA21] hover:text-black transform transition-all duration-200">Rent now</button>
+                      </div>
+                  </div>
+                </div> 
+              </div>
+        </div>
+    </div>
+  </div>
+  <!-- testimonial part start -->
+  <div id="testimonial-section" class="py-10 relative">
+    <div class="overly absolute left-0 bottom-0 w-60 h-60 hidden xl:block">
+        <img src="image/Pattern right.png" class="object-cover w-full h-full" alt="">
+    </div>
+    <div class="container">
+        <div class="testimonial-container bg-white py-5">
+            <div class="testimonial-slider relative max-w-xl mx-auto">
+                <div class="slider-item bg-white">
+                    <div class="inner-item flex flex-col justify-center items-center gap-y-5 text-center">
+                        <div class="img w-24 h-auto">
+                            <img src="image/testimonial-icon.png" alt="">
+                        </div>
+                        <div class="text space-y-2">
+                            <p class="text-gray-500 text-xl font-mono font-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit.The more content you provide about you. Quos saepe suscipit, nemo dolore sapiente!</p>
+                        <h6 class="text-sm text-black font-mono text-semibold uppercase">James Rodrigo</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-item bg-white">
+                    <div class="inner-item flex flex-col justify-center items-center text-center gap-y-5">
+                        <div class="img">
+                            <img src="image/testimonial-icon.png" alt="">
+                        </div>
+                        <div class="text space-y-2">
+                            <p class="text-gray-500 text-xl font-mono font-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit.The more content you provide about you. Quos saepe suscipit, nemo dolore sapiente!</p>
+                        <h6 class="text-sm text-black font-mono text-semibold uppercase">Manual miller</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-item bg-white">
+                    <div class="inner-item flex flex-col justify-center items-center text-center gap-y-5">
+                        <div class="img">
+                            <img src="image/testimonial-icon.png" alt="">
+                        </div>
+                        <div class="text space-y-2">
+                            <p class="text-gray-500 text-xl font-mono font-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit.The more content you provide about you. Quos saepe suscipit, nemo dolore sapiente!</p>
+                        <h6 class="text-sm text-black font-mono text-semibold uppercase">jackson roy</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- pricing part start -->
+  <div id="pricing-section">
+    <div class="container">
+        <div class="pricing-container space-y-8">
+            <div class="pricing-header space-y-4">
+                <h2 class="common-heading text-center">See our <span class="common-span">pricing plan</span></h2>
+                <div class="rent-time flex gap-x-5 justify-center items-center">
+                    <span class="inline-block text-slate-500 text-base font-mono font-medium">monthly</span>
+                    <input type="checkbox" class="hidden" name="" id="check">
+                    <label for="check" class="label-btn relative bg-green-500 w-10 h-4 rounded-full"></label>
+                    <span class="inline-block text-slate-500 text-base font-mono font-medium">Annually</span>
+                </div>
+            </div>
+            <div class="pricing-list grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4">
+                <div class="inner-list bg-[#EDF3E0] max-w-72 overflow-hidden py-10 space-y-16 hidden lg:block">
+                   <div class="text w-full px-3 space-y-2">
+                    <h3 class="text-3xl text-gray-700 font-[kalam] w-full">Save by choosing our best plan</h3>
+                    <p>Choose our best plan to save a lot.</p>
+                   </div>
+                   <div class="img translate-x-14">
+                    <img src="image/price.png" class="object-contain" alt="">
+                   </div>
+                </div>
+                <div class="inner-list flex flex-col justify-between items-center py-10 group duration-200 ease-in-out space-y-4">
+                    <div class="main-text text-center space-y-5 lg:space-y-8">
+                        <div class="inner-text">
+                            <p class="text-base font-mono text-slate-800 font-medium uppercase group-hover:text-[#94CA21] duration-200 ease-in-out">Essential</p>
+                            <span class="inline-block text-3xl font-mono text-black font-semibold">$29.50</span>
+                        </div>
+                        <ul class="space-y-1">
+                            <li class="flex gap-x-1 justify-center"> 
+                                <i class="ri-check-line"></i>
+                                <p class="text-base font-mono text-slate-500 font-medium">Quisque rhoncus</p>
+                            </li>
+                            <li class="flex gap-x-1 justify-center"> 
+                                <i class="ri-check-line"></i>
+                                <p class="text-base font-mono text-slate-500 font-medium">Lorem ipsum dolor</p>
+                            </li>
+                            <li class="flex gap-x-1 justify-center"> 
+                                <i class="ri-check-line"></i>
+                                <p class="text-base font-mono text-slate-500 font-medium">Vivamus velit mir</p>
+                            </li>
+                            <li class="flex gap-x-1 justify-center"> 
+                                <i class="ri-check-line"></i>
+                                <p class="text-base font-mono text-slate-500 font-medium">Velit mir</p>
+                            </li>
+                            <li class="flex gap-x-1 justify-center"> 
+                                <i class="ri-check-line"></i>
+                                <p class="text-base font-mono text-slate-500 font-medium">Elit mir ivamus</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="bg-black py-2 px-8 text-base text-white font-mono font-medium uppercase rounded-sm group-hover:bg-[#94CA21] duration-200 ease-in-out">Choose Plan</button>
+                </div>
+                <div class="inner-list flex flex-col justify-between items-center py-10 space-y-4">
+                    <div class="main-text text-center space-y-5 lg:space-y-8">
+                        <div class="inner-text">
+                            <p class="text-base font-mono text-[#94CA21] font-medium uppercase">Recommended</p>
+                            <span class="inline-block text-3xl font-mono text-black font-semibold">$44.40</span>
+                        </div>
+                        <ul class="space-y-1">
+                            <li class="flex gap-x-1 justify-center"> 
+                                <i class="ri-check-line"></i>
+                                <p class="text-base font-mono text-slate-500 font-medium">Quisque rhoncus</p>
+                            </li>
+                            <li class="flex gap-x-1 justify-center"> 
+                                <i class="ri-check-line"></i>
+                                <p class="text-base font-mono text-slate-500 font-medium">Lorem ipsum dolor</p>
+                            </li>
+                            <li class="flex gap-x-1 justify-center"> 
+                                <i class="ri-check-line"></i>
+                                <p class="text-base font-mono text-slate-500 font-medium">Vivamus velit mir</p>
+                            </li>
+                            <li class="flex gap-x-1 justify-center"> 
+                                <i class="ri-check-line"></i>
+                                <p class="text-base font-mono text-slate-500 font-medium">Elit mir ivamus</p>
+                            </li>
+                            <li class="flex gap-x-1 justify-center"> 
+                                <i class="ri-check-line"></i>
+                                <p class="text-base font-mono text-slate-500 font-medium">Lorem ipsum dolor</p>
+                            </li>
+                            <li class="flex gap-x-1 justify-center"> 
+                                <i class="ri-check-line"></i>
+                                <p class="text-base font-mono text-slate-500 font-medium">Ipsum dolo</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="bg-[#94CA21] py-2 px-8 text-base text-white font-mono font-medium uppercase rounded-sm">Choose Plan</button>
+                </div>
+                <div class="inner-list flex flex-col justify-between items-center py-10 group duration-200 ease-in-out space-y-4">
+                    <div class="main-text text-center space-y-5 lg:space-y-8">
+                        <div class="inner-text">
+                            <p class="text-base font-mono text-slate-800 font-medium uppercase group-hover:text-[#94CA21] duration-200 ease-in-out">pro</p>
+                            <span class="inline-block text-3xl font-mono text-black font-semibold">$70.50</span>
+                        </div>
+                        <ul class="space-y-1">
+                            <li class="flex gap-x-1 justify-center"> 
+                                <i class="ri-check-line"></i>
+                                <p class="text-base font-mono text-slate-500 font-medium">Quisque rhoncus</p>
+                            </li>
+                            <li class="flex gap-x-1 justify-center"> 
+                                <i class="ri-check-line"></i>
+                                <p class="text-base font-mono text-slate-500 font-medium">Lorem ipsum dolor</p>
+                            </li>
+                            <li class="flex gap-x-1 justify-center"> 
+                                <i class="ri-check-line"></i>
+                                <p class="text-base font-mono text-slate-500 font-medium">Vivamus velit mir</p>
+                            </li>
+                            <li class="flex gap-x-1 justify-center"> 
+                                <i class="ri-check-line"></i>
+                                <p class="text-base font-mono text-slate-500 font-medium"> It ir ivamus</p>
+                            </li>
+                            <li class="flex gap-x-1 justify-center"> 
+                                <i class="ri-check-line"></i>
+                                <p class="text-base font-mono text-slate-500 font-medium"> Ivamus mir vamus</p>
+                            </li>
+                            <li class="flex gap-x-1 justify-center"> 
+                                <i class="ri-check-line"></i>
+                                <p class="text-base font-mono text-slate-500 font-medium"> Quisque rhoncus</p>
+                            </li>
+                            <li class="flex gap-x-1 justify-center"> 
+                                <i class="ri-check-line"></i>
+                                <p class="text-base font-mono text-slate-500 font-medium"> lit mir iamus</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="bg-black py-2 px-8 text-base text-white font-mono font-medium uppercase rounded-sm group-hover:bg-[#94CA21] duration-200 ease-in-out">Choose Plan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- service part start -->
+  <div id="service-section">
+    <div class="container">
+        <div class="service-container space-y-12">
+            <div class="service-header grid grid-cols-1 md:grid-cols-[1fr_1fr] text-center md:text-start space-y-3 md:space-y-0">
+                <h2 class="common-heading leading-[50px]">See <span class="common-span">best services</span> for your solution</h2>
+                <p class="text-base text-slate-500 font-mono font-medium">Vitae aliquam vestibulum elit adipiscing massa diam in dignissim. Risus tellus libero elementum aliquam etiam. Lectus adipiscing est auctor mi quisque nunc non vive adipiscing massa diam in digniss imrra est.</p>
+            </div>
+            <div class="service-heroPart grid grid-cols-1 gap-y-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-y-0 lg:gap-x-4 ">
+                <div class="item space-y-4 bg-white flex flex-col items-center p-1 max-w-80 mx-auto sm:mx-0 sm:max-w-full">
+                    <div class="icon w-12 h-auto">
+                        <img src="image/icon-1.png" alt="">
+                    </div>
+                    <div class="text text-center">
+                          <h4 class="text-base text-slate-900 font-mono font-semibold uppercase">Secured Payment</h4>
+                          <p class="text-base text-slate-500 font-mono font-medium">Aliquam etiam lectus adipiscing est auctor mi quisque non.</p>
+                    </div>
+                </div>
+                <div class="item space-y-4 bg-white flex flex-col items-center p-1 max-w-80 mx-auto sm:mx-0 sm:max-w-full">
+                    <div class="icon w-12 h-auto">
+                        <img src="image/icon-2.png" alt="">
+                    </div>
+                    <div class="text text-center">
+                          <h4 class="text-base text-slate-900 font-mono font-semibold uppercase">any class vehicle</h4>
+                          <p class="text-base text-slate-500 font-mono font-medium">Aliquam etiam lectus adipiscing est auctor mi quisque non.</p>
+                    </div>
+                </div>
+                <div class="item space-y-4 bg-white flex flex-col items-center p-1 max-w-80 mx-auto sm:mx-0 sm:max-w-full">
+                    <div class="icon w-12 h-auto">
+                        <img src="image/icon-3.png" alt="">
+                    </div>
+                    <div class="text text-center">
+                          <h4 class="text-base text-slate-900 font-mono font-semibold uppercase">Car sharing options</h4>
+                          <p class="text-base text-slate-500 font-mono font-medium">Aliquam etiam lectus adipiscing est auctor mi quisque non.</p>
+                    </div>
+                </div>
+                <div class="item space-y-4 bg-white flex flex-col items-center p-1 max-w-80 mx-auto sm:mx-0 sm:max-w-full">
+                    <div class="icon w-12 h-auto">
+                        <img src="image/icon-4.png" alt="">
+                    </div>
+                     <div class="text text-center">
+                          <h4 class="text-base text-slate-900 font-mono font-semibold uppercase">Help center & Support</h4>
+                          <p class="text-base text-slate-500 font-mono font-medium">Aliquam etiam lectus adipiscing est auctor mi quisque non.</p>
+                    </div>
+                 </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- faq part start -->
+  <div id="faq-section">
+    <div class="container">
+        <div class="faq-container space-y-8">
+            <div class="faq-header w-full text-center">
+                <h2 class="common-heading w-full">We’ve got <span class="common-span">answers</span></h2>
+            </div>
+            <div class="faq-accrodion max-w-2xl mx-auto">
+                <div class="collapse collapse-plus bg-white">
+                    <input type="radio" name="my-accordion-3" checked="checked" /> 
+                    <div class="collapse-title text-base text-slate-900 font-mono font-semibold uppercase">
+                        Why to believe with GoCar Car rental service ?
+                    </div>
+                    <div class="collapse-content"> 
+                        <p class="text-base text-slate-500 font-mono font-medium">Diam orci gravida convallis at enim risus viverra. Hac mi tristique in aliquet tincidunt nam lectus nec. Placerat interdum auctor facilisi massa laoreet hendrerit posuere a. Tristique ultricies consectetu at.</p>
+                    </div>
+                    </div>
+                    <div class="collapse collapse-plus bg-white">
+                    <input type="radio" name="my-accordion-3" /> 
+                    <div class="collapse-title text-base text-slate-900 font-mono font-semibold uppercase">
+                        What is the refund policy of this car rental service ?
+                    </div>
+                    <div class="collapse-content"> 
+                        <p class="text-base text-slate-500 font-mono font-medium">Diam orci gravida convallis at enim risus viverra. Hac mi tristique in aliquet tincidunt nam lectus nec. Placerat interdum auctor facilisi massa laoreet hendrerit posuere a. Tristique ultricies consectetu at.</p>
+                    </div>
+                    </div>
+                    <div class="collapse collapse-plus bg-white">
+                    <input type="radio" name="my-accordion-3" /> 
+                    <div class="collapse-title text-base text-slate-900 font-mono font-semibold uppercase">
+                        What is the cost for just one day renting ?
+                    </div>
+                    <div class="collapse-content"> 
+                        <p class="text-base text-slate-500 font-mono font-medium">Diam orci gravida convallis at enim risus viverra. Hac mi tristique in aliquet tincidunt nam lectus nec. Placerat interdum auctor facilisi massa laoreet hendrerit posuere a. Tristique ultricies consectetu at.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- blog part start -->
+  <div id="blog-section">
+    <div class="container">
+        <div class="blog-container grid grid-cols-[1fr_2fr]">
+            <div class="blog-header space-y-8">
+                <h2 class="common-heading">Our <span class="common-span">Recent Posts</span></h2>
+                <button class="text-base text-white bg-black font-mono uppercase py-2 px-3 rounded-sm hover:bg-[#94CA21] duration-200 ease-in-out">Read Blogs</button>
+            </div>
+            <div class="blog-text"></div>
+        </div>
+    </div>
+  </div>
+
+   <!-- jquery link -->
+  <script src="link/code.jquery.com_jquery-1.12.4.min.js"></script>
+   <!-- slick js link -->
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <!-- main js link -->
+  <script src="link/script.js"></script>
+</body>
+</html>
