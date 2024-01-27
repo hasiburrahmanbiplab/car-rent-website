@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>carRent</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- google font -->
@@ -14,8 +14,7 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link
     href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
-    rel="stylesheet"
-/>
+    rel="stylesheet"/>
     <script>
         tailwind.config = {
             theme:{
@@ -38,7 +37,7 @@
                 border: 1px solid red;
             }
             .common-heading{
-                @apply text-3xl font-kalam font-semibold text-black uppercase leading-tight ;
+                @apply text-3xl font-kalam font-semibold text-black uppercase leading-[50px] ;
             }
             .common-span{
                 @apply inline-block text-[#94CA21] ;
@@ -86,23 +85,23 @@
             }
             .label-btn::after{
                 content: "";
-                width: 40%;
-                height: 100%;
-                background: rgb(93, 252, 1);
+                width: 12px;
+                height: 12px;
+                background: rgb(255, 255, 255);
                 position: absolute;
                 border-radius: 50%;
-                right: 0;
-                top: 0;
+                right:2px;
+                top: 2px;
             }
             .label-btn::before{
                 content: "";
-                width: 40%;
-                height: 100%;
-                background: rgb(93, 252, 1);
+                width: 12px;
+                height: 12px;
+                background: rgb(255, 255, 255);
                 position: absolute;
                 border-radius: 50%;
-                left: 0;
-                top: 0;
+                left:2px ;
+                top: 2px;
                 display: none;
             }
             #check:checked ~ .label-btn::after{
@@ -110,6 +109,17 @@
             }
             #check:checked ~ .label-btn::before{
                  display: block;
+            }
+            
+            .social-icon{
+                font-size: 30px; 
+            }
+            .social-icon:hover{
+                color: #94CA21;
+            }
+            #menu-btn:checked ~ .hidden{
+               display: block flex;
+               padding-top: 20px;
             }
         }
     </style>
@@ -124,8 +134,12 @@
         <img src="image/Pattern_left.png" class="w-full h-full object-contain" alt="">
     </div>
     <div class="container">
-       <header>
-        <div class="navbar bg-white flex flex-col gap-y-8 justify-between items-center lg:flex-row lg:gap-y-0">
+       <header class="bg-yellow-300 relative">
+        <div class="button absolute top-[5px] py-2 flex justify-end w-full">
+            <label for="menu-btn" class="lg:hidden text-2xl"><i class="ri-menu-3-line"></i></label>
+        </div>
+        <input type="checkbox" class="hidden" name="" id="menu-btn">
+        <div class="navbar hidden lg:block lg:flex bg-white flex flex-col gap-y-8 justify-between items-center lg:flex-row lg:gap-y-0">
             <div class="nav-start">
               <a href="#">
                 <img src="image/logo.png" alt="">
@@ -162,7 +176,7 @@
                    <div class="item-1 space-y-3 lg:space-y-5">
                     <p class="text-base text-slate-500 font-mono font-medium w-full">Vehicle type</p>
                     <div class="select-car border border-gray-300 p-2 flex justify-between gap-x-2 items-center pl-3 bg-white">
-                        <select class="bg-transparent appearance-none border-0 text-base font-mono font-medium text-slate-400">
+                        <select class="w-10/12 bg-transparent appearance-none border-0 text-base font-mono font-medium text-slate-400">
                             <option value="select car group">select car group</option>
                             <option value="BMW">BMW X5</option>
                             <option value="Lamborghini">Lamborghini</option>
@@ -175,7 +189,7 @@
                    <div class="item-1 space-y-3 lg:space-y-5">
                     <p class="text-base text-slate-500 font-mono font-medium">Picking up location</p>
                     <div class="select-car border border-gray-300 p-2 flex justify-between gap-x-2 items-center pl-3 bg-white">
-                        <select class="bg-transparent appearance-none border-0 text-base font-mono font-medium text-slate-400">
+                        <select class="w-10/12 bg-transparent appearance-none border-0 text-base font-mono font-medium text-slate-400">
                             <option value="select car group">Airport</option>
                             <option value="BMW">USA</option>
                             <option value="Lamborghini">Japan</option>
@@ -188,14 +202,14 @@
                    <div class="item-1 space-y-3 lg:space-y-5">
                     <p class="text-base text-slate-500 font-mono font-medium">Picking up date</p>
                     <div class="select-car border border-gray-300 p-2 flex justify-between gap-x-2 items-center pl-3 bg-white">
-                        <input type="text" class="appearance-none bg-transparent w-10/12 text-base placeholder:text-base font-mono text-slate-400 font-medium" placeholder="20/03/2023" name="" id="">
+                        <input type="text" class="appearance-none bg-transparent w-10/12 text-base placeholder:text-base font-mono text-slate-400 font-medium focus:outline-none" placeholder="20/03/2023" name="" id="">
                         <i class="ri-calendar-2-line"></i>
                     </div>
                    </div>
                    <div class="item-1 space-y-3 lg:space-y-5">
                     <p class="text-base text-slate-500 font-mono font-medium">Returning date</p>
                     <div class="select-car border border-gray-300 p-2 flex justify-between gap-x-2 items-center pl-3 bg-white">
-                        <input type="text" class="appearance-none bg-transparent w-10/12 text-base placeholder:text-base font-mono text-slate-400 font-medium focus-visible:outline-0 focus-visible:outline-white" placeholder="20/03/2023" name="" id="">
+                        <input type="text" class="appearance-none bg-transparent w-10/12 text-base placeholder:text-base font-mono text-slate-400 font-medium focus:outline-none" placeholder="20/03/2023" name="" id="">
                         <i class="ri-calendar-2-line"></i>
                     </div>
                    </div>
@@ -393,7 +407,7 @@
                 <div class="rent-time flex gap-x-5 justify-center items-center">
                     <span class="inline-block text-slate-500 text-base font-mono font-medium">monthly</span>
                     <input type="checkbox" class="hidden" name="" id="check">
-                    <label for="check" class="label-btn relative bg-green-500 w-10 h-4 rounded-full"></label>
+                    <label for="check" class="label-btn relative bg-black overflow-hidden w-10 h-4 rounded-full"></label>
                     <span class="inline-block text-slate-500 text-base font-mono font-medium">Annually</span>
                 </div>
             </div>
@@ -567,13 +581,13 @@
     </div>
   </div>
   <!-- faq part start -->
-  <div id="faq-section">
+  <div id="faq-section" class="bg-white">
     <div class="container">
-        <div class="faq-container space-y-8">
-            <div class="faq-header w-full text-center">
+        <div class="faq-container space-y-8 sm:mt-[60px] bg-white">
+            <div class="faq-header w-full text-center bg-white">
                 <h2 class="common-heading w-full">We’ve got <span class="common-span">answers</span></h2>
             </div>
-            <div class="faq-accrodion max-w-2xl mx-auto">
+            <div class="faq-accrodion max-w-2xl mx-auto bg-white">
                 <div class="collapse collapse-plus bg-white">
                     <input type="radio" name="my-accordion-3" checked="checked" /> 
                     <div class="collapse-title text-base text-slate-900 font-mono font-semibold uppercase">
@@ -608,14 +622,14 @@
   <!-- blog part start -->
   <div id="blog-section" class="bg-white">
     <div class="container">
-        <div class="blog-container max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-[2fr_2fr] md:grid-cols-[1.5fr_2fr] lg:grid-cols-[1fr_2fr] space-y-12 sm:space-y-0 lg:space-x-8 bg-white">
-            <div class="blog-header flex flex-col justify-center items-center sm:items-start md:block space-y-5 text-center sm:text-start">
+        <div class="blog-container max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-[2fr_2fr] md:grid-cols-[1.5fr_2fr] lg:grid-cols-[1fr_2fr] space-y-12 sm:space-y-0 lg:space-x-8 bg-white sm:mt-[60px]">
+            <div class="blog-header flex flex-col justify-center items-center sm:items-start md:block space-y-5 text-center sm:text-start bg-white">
                 <h2 class="common-heading">Our <span class="common-span">Recent Posts</span></h2>
                 <button class="text-base text-white bg-black font-mono uppercase py-2 px-3 rounded-sm hover:bg-[#94CA21] duration-200 ease-in-out">Read Blogs</button>
             </div>
             <div class="blog-text bg-white">
                 <ul class="space-y-8 w-full">
-                    <li class="flex flex-col items-center sm:items-start gap-x-6 gap-y-2">
+                    <li class="flex flex-col items-center sm:items-start lg:flex-row lg:items-center gap-x-6 gap-y-2">
                         <div class="date">
                             <span class="inline-block lg:block text-slate-900 text-2xl font-mono font-semibold">Jan 2</span>
                             <span class="inline-block lg:block text-slate-900 text-2xl font-mono font-semibold">2024</span>
@@ -625,7 +639,7 @@
                             <h4 class="text-xl text-slate-800 font-mono font-medium w-full">Safest car rental services in 2024</h4>
                         </div>
                     </li>
-                    <li class="flex  flex-col items-center sm:items-start gap-x-6 gap-y-2">
+                    <li class="flex  flex-col items-center sm:items-start lg:flex-row lg:items-center gap-x-6 gap-y-2">
                         <div class="date">
                             <span class="inline-block lg:block text-slate-900 text-2xl font-mono font-semibold">Jan 2</span>
                             <span class="inline-block lg:block text-slate-900 text-2xl font-mono font-semibold">2024</span>
@@ -635,7 +649,7 @@
                             <h4 class="text-xl text-slate-800 font-mono font-medium w-full">Safest car rental services in 2024</h4>
                         </div>
                     </li>
-                    <li class="flex  flex-col items-center sm:items-start gap-x-6 gap-y-2">
+                    <li class="flex  flex-col items-center sm:items-start lg:flex-row lg:items-center gap-x-6 gap-y-2">
                         <div class="date">
                             <span class="inline-block lg:block text-slate-900 text-2xl font-mono font-semibold">Jan 2</span>
                             <span class="inline-block lg:block text-slate-900 text-2xl font-mono font-semibold">2024</span>
@@ -650,8 +664,70 @@
         </div>
     </div>
   </div>
-  <!--  -->
-
+  <!-- contact part start -->
+  <div id="contact-section" class="bg-white relative">
+    <div class="overly absolute right-0 bottom-0 w-[100px] h-auto hidden xl:block">
+        <img src="image/Pattern.png" class=" w-ull h-full object-cover" alt="">
+    </div>
+    <div class="container">
+        <div class="contact-container max-w-4xl mx-auto grid grid-cols-1 space-y-5 md:space-y-0 md:grid-cols-[1.5fr_2fr] lg:grid-cols-[1fr_2fr] bg-white py-5 mt-[70px] ">
+            <div class="contact-header bg-white text-center md:text-start">
+                <h2 class="common-heading">Let’s begin with <span class="common-span">GoCar rental.</span></h2>
+            </div>
+            <div class="contact-btn space-y-3 bg-white text-center md:text-start">
+                <p class="text-base text-slate-500 font-mono font-medium">Neque, vestibulum sed varius magna et at. Eu, adipiscing morbi augue justo. Nibh laoreet volutpat quis velit. Blandit aliquam donec sed morbi congue eget lorem viverra porta id lobortis.</p>
+                <button class="text-base text-white font-mono font-medium uppercase bg-black hover:bg-[#94CA21] duration-200 ease-in-out py-2 px-4 rounded-sm">contact us</button>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- footer part start -->
+  <footer class="bg-white">
+    <div class="container">
+        <div class="footer-container grid grid-cols-1 md:grid-cols-3 space-y-10 md:space-y-0 md:space-x-10 py-2">
+            <div class="inner-item space-y-4">
+                <div class="logo">
+                    <img src="image/logo.png" alt="">
+                </div>
+                <div class="text">
+                    <p class="text-base text-slate-500 font-mono font-medium max-w-[400px]">Vel non nibh vestibulum massa ullam corper bib endum ultrices venenatis, id id sed mass.</p>
+                </div>
+                <ul class="flex gap-x-5">
+                    <li><a href="#" class="social-icon text-[#94CA21]"><i class="ri-facebook-fill"></i></a></li>
+                    <li><a href="#" class="social-icon"><i class="ri-twitter-fill"></i></a></li>
+                    <li><a href="#" class="social-icon"><i class="ri-instagram-line"></i></a></li>
+                    <li><a href="#" class="social-icon"><i class="ri-linkedin-fill"></i></a></li>
+                    <li><a href="#" class="social-icon"><i class="ri-youtube-fill"></i></a></li>
+                </ul>
+            </div>
+            <div class="inner-item">
+                <ul class="main-nav flex flex-col md:w-[80px] md:mx-auto gap-y-3">
+                    <li class=""><a href="#" class="text-slate-500 font-mono font-medium text-base hover:underline underline-offset-4 transform duration-200 decoration-[#94CA21] hover:text-[#94CA21] capitalize">Home</a></li>
+                    <li class=""><a href="#" class="text-slate-500 font-mono font-medium text-base hover:underline underline-offset-4 transform duration-200 decoration-[#94CA21] hover:text-[#94CA21] capitalize">Booking</a></li>
+                    <li class=""><a href="#" class="text-slate-500 font-mono font-medium text-base hover:underline underline-offset-4 transform duration-200 decoration-[#94CA21] hover:text-[#94CA21] capitalize">About</a></li>
+                    <li class=""><a href="#" class="text-slate-500 font-mono font-medium text-base hover:underline underline-offset-4 transform duration-200 decoration-[#94CA21] hover:text-[#94CA21] capitalize">Cars</a></li>
+                    <li class=""><a href="#" class="text-slate-500 font-mono font-medium text-base hover:underline underline-offset-4 transform duration-200 decoration-[#94CA21] hover:text-[#94CA21] capitalize">services</a></li>
+                    <li class=""><a href="#" class="text-slate-500 font-mono font-medium text-base hover:underline underline-offset-4 transform duration-200 decoration-[#94CA21] hover:text-[#94CA21] capitalize">Contact</a></li>
+                  </ul>
+            </div>
+            <div class="inner-item">
+                <div class="contact md:text-center h-full space-y-4">
+                    <h6 class="text-3xl text-slate-800 font-[kalam] font-semibold">contact</h6>
+                    <div class="number flex flex-col gap-y-1 w-full">
+                        <a href="#" class="text-base text-slate-500 font-mono font-medium hover:text-yellow-500">carrent33@gmail.com</a>
+                        <a href="#" class="text-base text-slate-500 font-mono font-medium hover:text-yellow-500 uppercase">USA: 101 2850 302 </a>
+                        <a href="#" class="text-base text-slate-500 font-mono font-medium hover:text-yellow-500 uppercase">Uk: 101 2850 302 </a>
+                    </div>
+                    <input type="search" name="" id="" class="focus:outline-none  text-base text-slate-500 font-mono font-medium bg-gray-900 py-1 px-3 placeholder:text-base placeholder:font-mono rounded-md" placeholder="search">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright w-full text-center flex flex-wrap justify-center gap-3 py-4 bg-gray-700">
+        <p class="text-base text-white font-mono font-medium">copyright@2024 design by Hasibur</p>
+        <a href="https://hasiburrahmanbiplab.github.io/healthier/" class="text-base text-yellow-500 font-mono font-medium hover:underline ">view more design</a>
+    </div>
+  </footer>
    <!-- jquery link -->
   <script src="link/code.jquery.com_jquery-1.12.4.min.js"></script>
    <!-- slick js link -->
