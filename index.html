@@ -34,8 +34,8 @@
             .container{
                 margin: 0 auto;
                 padding: 0 10px;
-                border: 1px solid red;
             }
+            
             .common-heading{
                 @apply text-3xl font-kalam font-semibold text-black uppercase leading-[50px] ;
             }
@@ -87,7 +87,7 @@
                 content: "";
                 width: 12px;
                 height: 12px;
-                background: rgb(255, 255, 255);
+                background: #94CA21;
                 position: absolute;
                 border-radius: 50%;
                 right:2px;
@@ -106,9 +106,11 @@
             }
             #check:checked ~ .label-btn::after{
                  display: none;
+                 background: #94CA21;
             }
             #check:checked ~ .label-btn::before{
                  display: block;
+                 background: #94CA21;
             }
             
             .social-icon{
@@ -176,7 +178,7 @@
                    <div class="item-1 space-y-3 lg:space-y-5">
                     <p class="text-base text-slate-500 font-mono font-medium w-full">Vehicle type</p>
                     <div class="select-car border border-gray-300 p-2 flex justify-between gap-x-2 items-center pl-3 bg-white">
-                        <select class="w-10/12 bg-transparent appearance-none border-0 text-base font-mono font-medium text-slate-400">
+                        <select class="w-10/12 bg-transparent appearance-none border-0 text-base font-mono font-medium text-slate-400 focus:outline-none focus:border-0">
                             <option value="select car group">select car group</option>
                             <option value="BMW">BMW X5</option>
                             <option value="Lamborghini">Lamborghini</option>
@@ -189,7 +191,7 @@
                    <div class="item-1 space-y-3 lg:space-y-5">
                     <p class="text-base text-slate-500 font-mono font-medium">Picking up location</p>
                     <div class="select-car border border-gray-300 p-2 flex justify-between gap-x-2 items-center pl-3 bg-white">
-                        <select class="w-10/12 bg-transparent appearance-none border-0 text-base font-mono font-medium text-slate-400">
+                        <select class="w-10/12 bg-transparent appearance-none border-0 text-base font-mono font-medium text-slate-400 focus:outline-none focus:border-0">
                             <option value="select car group">Airport</option>
                             <option value="BMW">USA</option>
                             <option value="Lamborghini">Japan</option>
@@ -590,7 +592,7 @@
             <div class="faq-accrodion max-w-2xl mx-auto bg-white">
                 <div class="collapse collapse-plus bg-white">
                     <input type="radio" name="my-accordion-3" checked="checked" /> 
-                    <div class="collapse-title text-base text-slate-900 font-mono font-semibold uppercase">
+                    <div class="collapse-title text-xl text-slate-900 font-mono font-semibold uppercase">
                         Why to believe with GoCar Car rental service ?
                     </div>
                     <div class="collapse-content"> 
@@ -599,7 +601,7 @@
                     </div>
                     <div class="collapse collapse-plus bg-white">
                     <input type="radio" name="my-accordion-3" /> 
-                    <div class="collapse-title text-base text-slate-900 font-mono font-semibold uppercase">
+                    <div class="collapse-title text-xl text-slate-900 font-mono font-semibold uppercase">
                         What is the refund policy of this car rental service ?
                     </div>
                     <div class="collapse-content"> 
@@ -608,7 +610,7 @@
                     </div>
                     <div class="collapse collapse-plus bg-white">
                     <input type="radio" name="my-accordion-3" /> 
-                    <div class="collapse-title text-base text-slate-900 font-mono font-semibold uppercase">
+                    <div class="collapse-title text-xl text-slate-900 font-mono font-semibold uppercase">
                         What is the cost for just one day renting ?
                     </div>
                     <div class="collapse-content"> 
@@ -718,7 +720,7 @@
                         <a href="#" class="text-base text-slate-500 font-mono font-medium hover:text-yellow-500 uppercase">USA: 101 2850 302 </a>
                         <a href="#" class="text-base text-slate-500 font-mono font-medium hover:text-yellow-500 uppercase">Uk: 101 2850 302 </a>
                     </div>
-                    <input type="search" name="" id="" class="focus:outline-none  text-base text-slate-500 font-mono font-medium bg-gray-900 py-1 px-3 placeholder:text-base placeholder:font-mono rounded-md" placeholder="search">
+                    <input type="search" name="" id="" class="focus:outline-none  text-base text-slate-500 font-mono font-medium bg-gray-900 py-2 px-3 placeholder:text-base placeholder:font-mono rounded-md" placeholder="search">
                 </div>
             </div>
         </div>
